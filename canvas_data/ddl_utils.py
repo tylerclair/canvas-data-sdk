@@ -77,11 +77,11 @@ def _get_column(table, column):
     elif table == 'quiz_question_dim' and column['name'] == u'name':
         """
         The quiz_question_dim.name column is specified as having a length of 256,
-        but the actual dumps contain longer values. Using a length of 4096 instead.
+        but the actual dumps contain longer values. Using the text type instead.
         """
         return Column(
             column['name'],
-            types.String(length=4096)
+            types.Text()
         )
     elif column['type'] == 'varchar':
         return Column(
