@@ -68,11 +68,11 @@ def _get_column(table, column):
         """
         These three columns in the quiz_question_answer_dim table are specified
         as having a length of 256, but the actual dumps contain longer values.
-        Using a length of 4096 instead.
+        Using the text type instead.
         """
         return Column(
             column['name'],
-            types.String(length=4096)
+            types.Text()
         )
     elif table == 'quiz_question_dim' and column['name'] == u'name':
         """
